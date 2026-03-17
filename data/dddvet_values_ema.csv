@@ -1,0 +1,85 @@
+Substance,Antimicrobial Class,Route,DDDvet,DCDvet,Unit,Comment
+Amoxicillin,Penicillins with extended spectrum,Oral,20,81,mg/kg,Includes amoxicillin in combination with clavulanic acid.
+Amoxicillin,Penicillins with extended spectrum,Parenteral,8.3,29,mg/kg,Includes amoxicillin in combination with clavulanic acid.
+Ampicillin,Penicillins with extended spectrum,Oral,29,123,mg/kg,
+Ampicillin,Penicillins with extended spectrum,Parenteral,11,37,mg/kg,
+Apramycin,Aminoglycosides,Oral,30,150,mg/kg,
+Apramycin,Aminoglycosides,Parenteral,20,100,mg/kg,
+Benzathine benzylpenicillin_combi,Beta-lactamase sensitive penicillins,Parenteral,2.9,8.6,mg/kg,When in combination products; currently not identified as marketed in single substance injectables in the EU/EEA countries.
+Benzylpenicillin,Beta-lactamase sensitive penicillins,Parenteral,14,54,mg/kg,
+Cefalexin,First-generation cephalosporins,Parenteral,7,32,mg/kg,
+Cefquinome,Fourth-generation cephalosporins,Parenteral,1.5,5.5,mg/kg,
+Ceftiofur,Third-generation cephalosporins,Parenteral,1,4,mg/kg,
+Ceftiofur_LA,Third-generation cephalosporins,Parenteral,1,6.6,mg/kg,"Long acting due to formulation (crystalline free acid, micronized; oil adjuvant)."
+Chlortetracycline,Tetracyclines,Oral,22,138,mg/kg,
+Colistin,Polymyxins,Oral,4.8,24,mg/kg,
+Colistin,Polymyxins,Parenteral,2.6,12,mg/kg,
+Danofloxacin,Fluoroquinolones,Parenteral,1.9,5.1,mg/kg,
+Difloxacin,Fluoroquinolones,Parenteral,3.8,15,mg/kg,
+Dihydrostreptomycin,Aminoglycosides,Oral,48,138,mg/kg,
+Dihydrostreptomycin,Aminoglycosides,Parenteral,25,56,mg/kg,
+Doxycycline,Tetracyclines,Oral,10,42,mg/kg,
+Doxycycline,Tetracyclines,Parenteral,10,40,mg/kg,
+Enrofloxacin,Fluoroquinolones,Oral,4.7,22,mg/kg,
+Enrofloxacin,Fluoroquinolones,Parenteral,4.2,16,mg/kg,
+Erythromycin,Macrolides,Oral,20,60,mg/kg,
+Erythromycin,Macrolides,Parenteral,12,41,mg/kg,
+Florfenicol,Amphenicols,Parenteral,13,40,mg/kg,
+Flumequine,Other quinolones,Oral,14,66,mg/kg,
+Flumequine,Other quinolones,Parenteral,9.8,39,mg/kg,
+Framycetin,Aminoglycosides,Parenteral,5,10,mg/kg,
+Gamithromycin_LA,Macrolides,Parenteral,*,*,mg/kg,Long acting only.
+Gamithromycin,Macrolides,Parenteral,6,*,mg/kg,Brault et al 2019
+Gentamicin,Aminoglycosides,Oral,7,20,mg/kg,
+Gentamicin,Aminoglycosides,Parenteral,8.4,27,mg/kg,
+Kanamycin,Aminoglycosides,Parenteral,15,53,mg/kg,
+Lincomycin_spec,Lincosamides,Parenteral,13,62,mg/kg,When in combination with spectinomycin; currently not identified as marketed in single substance injectables in the EU/EEA countries.
+Marbofloxacin,Fluoroquinolones,Oral,1,3,mg/kg,
+Marbofloxacin,Fluoroquinolones,Parenteral,3.6,8.9,mg/kg,
+Neomycin,Aminoglycosides,Oral,21,85,mg/kg,
+Neomycin_combi,Aminoglycosides,Parenteral,7.4,29,mg/kg,When in combination products; currently not identified as marketed in single substance injectables in the EU/EEA countries.
+Oxolinic acid,Other quinolones,Oral,17,80,mg/kg,
+Oxytetracycline,Tetracyclines,Oral,20,111,mg/kg,
+Oxytetracycline,Tetracyclines,Parenteral,6.5,23,mg/kg,
+Paromomycin,Other antibacterials,Oral,38,150,mg/kg,
+Paromomycin,Other antibacterials,Parenteral,12,49,mg/kg,
+Penethamate hydriodide,Beta-lactamase sensitive penicillins,Parenteral,12,38,mg/kg,
+Phthalylsulfathiazole_combi,Sulfonamides,Oral,25,113,mg/kg,When in combination products not including trimethoprim; currently not identified as marketed in single substance oral VMPs in the EU/EEA countries.
+Procaine benzylpenicillin,Beta-lactamase sensitive penicillins,Parenteral,13,46,mg/kg,
+Spectinomycin,Other antibacterials,Oral,20,70,mg/kg,
+Spectinomycin,Other antibacterials,Parenteral,28,85,mg/kg,
+Spectinomycin_linc,Other antibacterials,Parenteral,18,83,mg/kg,When in combination with lincomycin; because the dose of spectinomycin is substantially higher in single substance products than in combination with lincomycin.
+Spiramycin,Macrolides,Oral,35,140,mg/kg,
+Spiramycin,Macrolides,Parenteral,21,38,mg/kg,
+Streptomycin,Aminoglycosides,Oral,70,245,mg/kg,
+Streptomycin,Aminoglycosides,Parenteral,10,20,mg/kg,
+Sulfachlorpyridazine_TMP,Sulfonamides,Oral,20,80,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadiazine_TMP,Sulfonamides,Oral,24,114,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadiazine_TMP,Sulfonamides,Parenteral,13,36,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadimethoxine,Sulfonamides,Oral,40,185,mg/kg,
+Sulfadimethoxine_TMP,Sulfonamides,Oral,23,113,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadimethoxine,Sulfonamides,Parenteral,30,90,mg/kg,
+Sulfadimethoxine_TMP,Sulfonamides,Parenteral,19,56,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadimidine,Sulfonamides,Oral,105,445,mg/kg,
+Sulfadimidine_TMP,Sulfonamides,Oral,30,180,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadimidine,Sulfonamides,Parenteral,101,364,mg/kg,
+Sulfadimidine_TMP,Sulfonamides,Parenteral,16,65,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadoxine_TMP,Sulfonamides,Oral,25,100,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfadoxine_TMP,Sulfonamides,Parenteral,14,51,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfaguanidine,Sulfonamides,Oral,77,270,mg/kg,
+Sulfamethoxazole_TMP,Sulfonamides,Parenteral,15,75,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfamethoxazole_TMP,Sulfonamides,Oral,20,*,mg/kg,When in combination with trimethoprim; Campos et al 2021
+Sulfamethoxypyridazine_combi,Sulfonamides,Oral,35,115,mg/kg,When in combination products not including trimethoprim; currently not identified as marketed in single substance oral VMPs in the EU/EEA countries.
+Sulfamethoxypyridazine_TMP,Sulfonamides,Oral,23,93,mg/kg,When in combination with trimethoprim; due to synergistic effect.
+Sulfamethoxypyridazine,Sulfonamides,Parenteral,51,278,mg/kg,
+Tetracycline,Tetracyclines,Oral,28,130,mg/kg,
+Tetracycline,Tetracyclines,Parenteral,2.5,5,mg/kg,
+Thiamphenicol,Amphenicols,Oral,45,180,mg/kg,
+Tildipirosin_LA,Macrolides,Parenteral,*,*,mg/kg,Long acting only.
+Tilmicosin,Macrolides,Oral,21,85,mg/kg,
+Tilmicosin,Macrolides,Parenteral,4,9.8,mg/kg,
+Trimethoprim_sulfa,Trimethoprim and derivatives,Oral,4.8,23,mg/kg,When in combination with a sulfonamide; due to synergistic effect.
+Trimethoprim_sulfa,Trimethoprim and derivatives,Parenteral,2.8,10,mg/kg,When in combination with a sulfonamide; due to synergistic effect.
+Tulathromycin_LA,Macrolides,Parenteral,0.3,2.5,mg/kg,Long acting only.
+Tylosin,Macrolides,Oral,41,414,mg/kg,
+Tylosin,Macrolides,Parenteral,13,59,mg/kg,
