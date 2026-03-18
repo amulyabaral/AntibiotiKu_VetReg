@@ -1,3 +1,4 @@
 data/mimiro_*
 data/animalia_*
 raw_data
+*.parquet
