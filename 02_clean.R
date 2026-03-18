@@ -189,7 +189,7 @@ vmp_limits_clean <- vmp_limits |>
   mutate(
     varenummer = str_pad(as.character(varenummer), width = 6, side = "left", pad = "0"),
     min_dose   = readr::parse_number(as.character(`min dose`)),
-    max_dose   = `Max dose*2`
+    max_dose   = coalesce(`Max dose*2`, readr::parse_number(as.character(`Max dose`)))
   ) |>
   select(varenummer, lmp_enhet_pakning_v, min_dose, max_dose) |>
   distinct()
@@ -214,96 +214,51 @@ mutate(
 
 vetreg_4 <- vetreg_3 |>
   mutate(
-  # --- Determine unit-match category -----------------------------------
+    # --- Unit-match category (veterinarian only) -------------------------
     is_match = case_when(
-      enhet_mengde == lmp_enhet_pakning_v                              ~ 1,
-      lmp_enhet_pakning_v == "sprøyte" & enhet_mengde %in% c("stk", "spr") ~ 2,
+      enhet_mengde == lmp_enhet_pakning_v                                        ~ 1,
+      lmp_enhet_pakning_v == "sprøyte" & enhet_mengde %in% c("stk", "spr")      ~ 2,
       lmp_enhet_pakning_v %in% c("g", "ml") & enhet_mengde %in% c("stk", "spr") ~ 3,
-      TRUE                                                             ~ 0
-    )) |>
-  
-  mutate(
+      TRUE                                                                       ~ 0
+    ),
     # --- Reclassify "dose" → "stk" for syringe products -----------------
     adjust_doser = utleveringstype == veterinarian &
       grepl("dose", enhet_mengde, ignore.case = TRUE) &
       lmp_enhet_pakning_v == "sprøyte" &
       levert_mengde <= 4 * dot * antalldyr,
-    
-    enhet_mengde = if_else(adjust_doser, "stk", enhet_mengde)) |>
-  mutate(
-    # --- Calculate dose (veterinarian rows only) -------------------------
-    calculated_dose = if_else(
-      utleveringstype == veterinarian,
-      case_when(
-        is_match == 0 & fix_method == "multiply_by" ~ levert_mengde * fix_value,
-        is_match == 0 & fix_method == "divide_by"   ~ levert_mengde / fix_value,
-        is_match %in% c(1, 2)                       ~ levert_mengde,
-        is_match == 3                                ~ levert_mengde * lmp_mengde,
-        TRUE                                         ~ NA_real_
-      ),
-      NA_real_
+    enhet_mengde = if_else(adjust_doser, "stk", enhet_mengde),
+    # --- Calculate dose --------------------------------------------------
+    calculated_dose = case_when(
+      utleveringstype == veterinarian & is_match == 0 & fix_method == "multiply_by" ~ levert_mengde * fix_value,
+      utleveringstype == veterinarian & is_match == 0 & fix_method == "divide_by"   ~ levert_mengde / fix_value,
+      utleveringstype == veterinarian & is_match %in% c(1, 2)                       ~ levert_mengde,
+      utleveringstype == veterinarian & is_match == 3                                ~ levert_mengde * lmp_mengde,
+      utleveringstype == pharmacy                                                    ~ antall_pakninger * lmp_antall * lmp_mengde,
+      TRUE                                                                           ~ NA_real_
     ),
-    
     # --- Flag dose plausibility ------------------------------------------
     no_dose_info = if_else(
-      utleveringstype == veterinarian,
+      utleveringstype %in% c(veterinarian, pharmacy),
       is.na(min_dose) | is.na(max_dose),
       NA
     ),
-    
-    dose_flag = if_else(
-      utleveringstype == veterinarian,
-      case_when(
-        no_dose_info == TRUE                                    ~ "Not Checked - No Dose Info",
-        !is.na(calculated_dose) & calculated_dose < min_dose    ~ "Flagged - Low",
-        !is.na(calculated_dose) & calculated_dose > (max_dose * antalldyr) ~ "Flagged - High",
-        is.na(calculated_dose)                                  ~ "Not Checked - Calculation Error",
-        TRUE                                                    ~ "OK"
-      ),
-      "Not Applicable"
+    dose_flag = case_when(
+      !utleveringstype %in% c(veterinarian, pharmacy)           ~ "Not Applicable",
+      no_dose_info == TRUE                                      ~ "No Dose Info",
+      !is.na(calculated_dose) & calculated_dose < min_dose      ~ "Flagged - Low",
+      !is.na(calculated_dose) & calculated_dose > (max_dose * antalldyr) ~ "Flagged - High",
+      is.na(calculated_dose)                                    ~ "Calculation Error",
+      TRUE                                                      ~ "OK"
     ),
-    
-    # --- Overwrite amount & unit for corrected rows ----------------------
+    # --- Overwrite amount & unit for corrected units in vet rows ------------------
     levert_mengde = if_else(
       utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
-      calculated_dose,
-      levert_mengde
+      calculated_dose, levert_mengde
     ),
-    
     enhet_mengde = if_else(
       utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
-      lmp_enhet_pakning_v,
-      enhet_mengde
+      lmp_enhet_pakning_v, enhet_mengde
     )
   )
 
-#### from pharmacies, 'g' enhet = they just mean sprøyte (manual verificaiton) 
-## same with g spr they mean same unit 
-##same with mlhgl 
-
-vetreg_4 <- vetreg_4 |>
-  mutate(
-    calculated_dose_pharmacy = if_else(
-      utleveringstype == pharmacy,
-      antall_pakninger * lmp_antall * lmp_mengde,
-      NA_real_
-    ),
-    
-    no_dose_info_pharmacy = if_else(
-      utleveringstype == pharmacy,
-      is.na(min_dose) | is.na(max_dose),
-      NA
-    ),
-    
-    dose_flag_pharmacy = if_else(
-      utleveringstype == pharmacy,
-      case_when(
-        no_dose_info_pharmacy == TRUE                                              ~ "Not Checked - No Dose Info",
-        !is.na(calculated_dose_pharmacy) & calculated_dose_pharmacy < min_dose     ~ "Flagged - Low",
-        !is.na(calculated_dose_pharmacy) & calculated_dose_pharmacy > (max_dose * antalldyr) ~ "Flagged - High",
-        is.na(calculated_dose_pharmacy)                                            ~ "Not Checked - Calculation Error",
-        TRUE                                                                       ~ "OK"
-      ),
-      "Not Applicable"
-    )
-  )
+#### from pharmacies, the unmatched units actually mean the actual units (manual verificaiton) 
