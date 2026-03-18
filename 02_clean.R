@@ -1,171 +1,4 @@
 
-
-vetreg_3 <- vetreg_3 |>
-  mutate(
-    antalldyr_num = parse_number(as.character(antalldyr))
-  ) |>
-  group_by(reportid) |>
-  mutate(
-    n_merke = n_distinct(merke[antalldyr_num > 1], na.rm = TRUE),
-    match_n = !is.na(antalldyr_num) & (n_merke == antalldyr_num),
-    recode_flag = treatment_unit == "Group" & (antalldyr_num > 1) & match_n
-  ) |>
-  ungroup() |>
-  mutate(
-    antalldyr = if_else(recode_flag, 1, antalldyr_num)
-  ) |>
-  select(-antalldyr_num, -match_n, -recode_flag)
-
-
-
-vmp_limits_clean <- vmp_limits |>
-  mutate(
-    varenummer = str_pad(as.character(varenummer), width = 6, side = "left", pad = "0"),
-    min_dose = readr::parse_number(as.character(`min dose`)),
-    max_dose = `Max dose*2`
-  ) |>
-  select(varenummer, lmp_enhet_pakning_v, min_dose, max_dose) |>
-  distinct()
-
-# Now rebuild vetreg_4 using vmp_limits instead of ref_with for dose limits
-vetreg_4 <- vetreg_3 |>
-  left_join(
-    vmp_limits_clean,
-    by = c("varenummer", "lmp_enhet_pakning_v")
-  ) |>
-  left_join(ref_except, by = c("utleveringstype", "varenummer", "enhet_mengde")) |>
-  mutate(
-    levert_mengde = readr::parse_number(as.character(levert_mengde)),
-    fix_value = readr::parse_number(as.character(fix_value)),
-    lmp_mengde = readr::parse_number(as.character(lmp_mengde))
-  ) |>
-  mutate(
-    adjust_doser = utleveringstype == veterinarian &
-      grepl("dose", enhet_mengde, ignore.case = TRUE) &
-      lmp_enhet_pakning_v == "sprøyte" &
-      levert_mengde <= 4 * dot * antalldyr,
-    
-    enhet_mengde = if_else(adjust_doser, "stk", enhet_mengde),
-    
-    is_match = case_when(
-      enhet_mengde == lmp_enhet_pakning_v ~ 1,
-      lmp_enhet_pakning_v == "sprøyte" & enhet_mengde %in% c("stk", "spr") ~ 2,
-      lmp_enhet_pakning_v %in% c("g", "ml") & enhet_mengde %in% c("stk", "spr") ~ 3,
-      TRUE ~ 0
-    ),
-    
-    calculated_dose = if_else(
-      utleveringstype == veterinarian,
-      case_when(
-        is_match == 0 & fix_method == "multiply_by" ~ levert_mengde * fix_value,
-        is_match == 0 & fix_method == "divide_by" ~ levert_mengde / fix_value,
-        is_match %in% c(1, 2) ~ levert_mengde,
-        is_match == 3 ~ levert_mengde * lmp_mengde,
-        TRUE ~ NA_real_
-      ),
-      NA_real_
-    ),
-    
-    no_dose_info = if_else(
-      utleveringstype == veterinarian,
-      is.na(min_dose) | is.na(max_dose),
-      NA
-    ),
-    
-    dose_flag = if_else(
-      utleveringstype == veterinarian,
-      case_when(
-        no_dose_info == TRUE ~ "Not Checked - No Dose Info",
-        !is.na(calculated_dose) & calculated_dose < min_dose ~ "Flagged - Low",
-        !is.na(calculated_dose) & calculated_dose > (max_dose * antalldyr) ~ "Flagged - High",
-        is.na(calculated_dose) ~ "Not Checked - Calculation Error",
-        TRUE ~ "OK"
-      ),
-      "Not Applicable"
-    ),
-    
-    levert_mengde = if_else(
-      utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
-      calculated_dose,
-      levert_mengde
-    ),
-    
-    enhet_mengde = if_else(
-      utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
-      lmp_enhet_pakning_v,
-      enhet_mengde
-    )
-  )
-
-
-vetreg_4 <- vetreg_3 |>
-  left_join(ref_with, by = c("utleveringstype", "varenummer")) |>
-  left_join(ref_except, by = c("utleveringstype", "varenummer", "enhet_mengde")) |>
-  mutate(
-    levert_mengde = readr::parse_number(as.character(levert_mengde)),
-    fix_value = readr::parse_number(as.character(fix_value)),
-    lmp_mengde = readr::parse_number(as.character(lmp_mengde))
-  ) |>
-  mutate(
-    adjust_doser = utleveringstype == veterinarian &
-      grepl("dose", enhet_mengde, ignore.case = TRUE) &
-      lmp_enhet_pakning_v == "sprøyte" &
-      levert_mengde <= 4 * dot * antalldyr,
-    
-    enhet_mengde = if_else(adjust_doser, "stk", enhet_mengde),
-    
-    is_match = case_when(
-      enhet_mengde == lmp_enhet_pakning_v ~ 1,
-      lmp_enhet_pakning_v == "sprøyte" & enhet_mengde %in% c("stk", "spr") ~ 2,
-      lmp_enhet_pakning_v %in% c("g", "ml") & enhet_mengde %in% c("stk", "spr") ~ 3,
-      TRUE ~ 0
-    ),
-    
-    calculated_dose = if_else(
-      utleveringstype == veterinarian,
-      case_when(
-        is_match == 0 & fix_method == "multiply_by" ~ levert_mengde * fix_value,
-        is_match == 0 & fix_method == "divide_by" ~ levert_mengde / fix_value,
-        is_match %in% c(1, 2) ~ levert_mengde,
-        is_match == 3 ~ levert_mengde * lmp_mengde,
-        TRUE ~ NA_real_
-      ),
-      NA_real_
-    ),
-    
-    no_dose_info = if_else(
-      utleveringstype == veterinarian,
-      is.na(min_dose) | is.na(max_dose),
-      NA
-    ),
-    
-    dose_flag = if_else(
-      utleveringstype == veterinarian,
-      case_when(
-        no_dose_info == TRUE ~ "Not Checked - No Dose Info",
-        !is.na(calculated_dose) & calculated_dose < min_dose ~ "Flagged - Low",
-        !is.na(calculated_dose) & calculated_dose > (max_dose * antalldyr) ~ "Flagged - High",
-        is.na(calculated_dose) ~ "Not Checked - Calculation Error",
-        TRUE ~ "OK"
-      ),
-      "Not Applicable"
-    ),
-    
-    levert_mengde = if_else(
-      utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
-      calculated_dose,
-      levert_mengde
-    ),
-    
-    enhet_mengde = if_else(
-      utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
-      lmp_enhet_pakning_v,
-      enhet_mengde
-    )
-  )
-
-
-
 # ============================================================================
 # VetReg — Data cleaning & preparation
 # ============================================================================
@@ -363,7 +196,7 @@ vmp_limits_clean <- vmp_limits |>
 
 # --- Join, calculate, flag & correct ---------------------------------
 
-vetreg_4 <- vetreg_3 |>
+vetreg_3 <- vetreg_3 |>
   
   # --- Joins ----------------------------------------------------------------
   left_join(vmp_limits_clean, by = c("varenummer", "lmp_enhet_pakning_v")) |>
@@ -373,8 +206,21 @@ vetreg_4 <- vetreg_3 |>
 mutate(
   levert_mengde = readr::parse_number(as.character(levert_mengde)),
   fix_value     = readr::parse_number(as.character(fix_value)),
-  lmp_mengde    = readr::parse_number(as.character(lmp_mengde))
-) |>
+  lmp_mengde    = readr::parse_number(as.character(lmp_mengde)),
+  lmp_antall    = readr::parse_number(as.character(lmp_antall)),
+  antall_pakninger    = readr::parse_number(as.character(antall_pakninger))
+  
+)
+
+vetreg_4 <- vetreg_3 |>
+  mutate(
+  # --- Determine unit-match category -----------------------------------
+    is_match = case_when(
+      enhet_mengde == lmp_enhet_pakning_v                              ~ 1,
+      lmp_enhet_pakning_v == "sprøyte" & enhet_mengde %in% c("stk", "spr") ~ 2,
+      lmp_enhet_pakning_v %in% c("g", "ml") & enhet_mengde %in% c("stk", "spr") ~ 3,
+      TRUE                                                             ~ 0
+    )) |>
   
   mutate(
     # --- Reclassify "dose" → "stk" for syringe products -----------------
@@ -383,16 +229,8 @@ mutate(
       lmp_enhet_pakning_v == "sprøyte" &
       levert_mengde <= 4 * dot * antalldyr,
     
-    enhet_mengde = if_else(adjust_doser, "stk", enhet_mengde),
-    
-    # --- Determine unit-match category -----------------------------------
-    is_match = case_when(
-      enhet_mengde == lmp_enhet_pakning_v                              ~ 1,
-      lmp_enhet_pakning_v == "sprøyte" & enhet_mengde %in% c("stk", "spr") ~ 2,
-      lmp_enhet_pakning_v %in% c("g", "ml") & enhet_mengde %in% c("stk", "spr") ~ 3,
-      TRUE                                                             ~ 0
-    ),
-    
+    enhet_mengde = if_else(adjust_doser, "stk", enhet_mengde)) |>
+  mutate(
     # --- Calculate dose (veterinarian rows only) -------------------------
     calculated_dose = if_else(
       utleveringstype == veterinarian,
@@ -439,4 +277,33 @@ mutate(
     )
   )
 
+#### from pharmacies, 'g' enhet = they just mean sprøyte (manual verificaiton) 
+## same with g spr they mean same unit 
+##same with mlhgl 
 
+vetreg_4 <- vetreg_4 |>
+  mutate(
+    calculated_dose_pharmacy = if_else(
+      utleveringstype == pharmacy,
+      antall_pakninger * lmp_antall * lmp_mengde,
+      NA_real_
+    ),
+    
+    no_dose_info_pharmacy = if_else(
+      utleveringstype == pharmacy,
+      is.na(min_dose) | is.na(max_dose),
+      NA
+    ),
+    
+    dose_flag_pharmacy = if_else(
+      utleveringstype == pharmacy,
+      case_when(
+        no_dose_info_pharmacy == TRUE                                              ~ "Not Checked - No Dose Info",
+        !is.na(calculated_dose_pharmacy) & calculated_dose_pharmacy < min_dose     ~ "Flagged - Low",
+        !is.na(calculated_dose_pharmacy) & calculated_dose_pharmacy > (max_dose * antalldyr) ~ "Flagged - High",
+        is.na(calculated_dose_pharmacy)                                            ~ "Not Checked - Calculation Error",
+        TRUE                                                                       ~ "OK"
+      ),
+      "Not Applicable"
+    )
+  )

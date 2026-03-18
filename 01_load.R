@@ -39,7 +39,11 @@ pacman::p_load(
 )
 
 # Set project root to the folder containing this script
-project_root <- dirname(rstudioapi::getSourceEditorContext()$path)
+project_root <- tryCatch(
+  dirname(rstudioapi::getSourceEditorContext()$path),
+  error = function(e) here::here()
+)
+if (is.null(project_root) || project_root == "") project_root <- here::here()
 setwd(project_root)
 
 
@@ -158,10 +162,13 @@ dbDisconnect(con)
 # ============================================================================
 
 # -- SPC product info (from Digivet) ----------------------------------------
-load(here("data", "Varenr_Virkestoff_unique.rds"))
+load(file.path(project_root, "data", "Varenr_Virkestoff_unique.rds"))
 
 spc_base <- Varenr_Virkestoff_unique |>
-  mutate(varenummer = str_pad(varenummer, width = 6, side = "left", pad = "0"))
+  mutate(varenummer = str_pad(varenummer, width = 6, side = "left", pad = "0"),
+         lmp_antall = as.numeric(lmp_antall),
+         lmp_antall = if_else(is.na(lmp_antall) | lmp_antall == 0, 1, lmp_antall)
+  )
 
 spc_info <- spc_base |>
   bind_rows(
@@ -175,39 +182,39 @@ spc_info <- spc_base |>
   )
 
 # Subset used for joins later
-ref_all <- spc_info %>%
-  select(varenummer, lmp_enhet_pakning_v, lmp_mengde, legemiddelform_kort_dn) %>%
+ref_all <- spc_info |>
+  select(varenummer, lmp_enhet_pakning_v, lmp_mengde, lmp_antall, legemiddelform_kort_dn) |>
   distinct()
 
 # -- Unit-mismatch fix rules ------------------------------------------------
 # Products where reported unit doesn't match SPC → apply conversion
-ref_except <- read_csv(here("refs_ap1 - medications_without_matching_units.csv")) %>%
-  select(utleveringstype, varenummer, enhet_mengde, fix_method, fix_value, comment) %>%
+ref_except <- read_csv(file.path(project_root, "data", "refs_ap1 - medications_without_matching_units.csv")) |>
+  select(utleveringstype, varenummer, enhet_mengde, fix_method, fix_value, comment) |>
   bind_rows(
     expand_grid(
       utleveringstype = c(veterinarian, pharmacy),
       varenummer      = "128131",
       enhet_mengde    = c("enpac", "ml", NA_character_)
-    ) %>%
+    ) |>
       mutate(fix_method = "multiply_by", fix_value = 1, comment = "meant stk")
-  ) %>%
+  ) |>
   distinct()
 
 # -- VMP dose limits --------------------------------------------------------
-vmp_limits <- read_csv(here("VMP_limits.csv"))
+vmp_limits <- read_csv(file.path(project_root, "data", "VMP_limits.csv"))
 
 
 # -- DDDvet reference values from EMA ---------------------------------
-dddvet <- read_csv(here("data", "dddvet_values_ema.csv"))
+dddvet <- read_csv(file.path(project_root, "data", "dddvet_values_ema.csv"))
 
 # -- Diagnosis codes (in English) ----------------------------------------------
-diag_codes_english <- read_csv2(here("data", "diag_codes_english.csv")) |>
+diag_codes_english <- read_csv2(file.path(project_root, "data", "diag_codes_english.csv")) |>
   select(diagnosis, disease_category = main_category)
 
 # ============================================================================
 # Population data
 # ============================================================================
 
-mimiro_herd   <- read_csv(here("data", "mimiro_herd.csv"))
-animalia_herd <- read_csv2(here("data", "animalia_herd.txt"))
-cattle_pop    <- read_tsv(here("data", "cattle_pop_ssb.tsv"))
+mimiro_herd   <- read_csv(file.path(project_root, "data", "mimiro_herd.csv"))
+animalia_herd <- read_csv2(file.path(project_root, "data", "animalia_herd.txt"))
+cattle_pop    <- read_tsv(file.path(project_root, "data", "cattle_pop_ssb.tsv"))
