@@ -170,7 +170,7 @@ vetreg_3 <- vetreg_2 |>
 #        1 = exact match
 #        2 = syringe reported as "stk"/"spr"
 #        3 = bulk (g/ml) reported as "stk"/"spr" → multiply by pack strength
-#        0 = no match (apply fix rule if available)
+#        0 = no match
 #   f) Calculate `calculated_dose` using the appropriate conversion.
 #   g) Flag each row's dose plausibility:
 #        "OK"                          — within [min_dose, max_dose × antalldyr]
@@ -214,12 +214,12 @@ mutate(
 
 vetreg_4 <- vetreg_3 |>
   mutate(
-    # --- Unit-match category (veterinarian only) -------------------------
+    # --- Unit-match category -------------------------
     is_match = case_when(
-      enhet_mengde == lmp_enhet_pakning_v                                        ~ 1,
+      enhet_mengde == lmp_enhet_pakning_v                                       ~ 1,
       lmp_enhet_pakning_v == "sprøyte" & enhet_mengde %in% c("stk", "spr")      ~ 2,
       lmp_enhet_pakning_v %in% c("g", "ml") & enhet_mengde %in% c("stk", "spr") ~ 3,
-      TRUE                                                                       ~ 0
+      TRUE                                                                      ~ 0
     ),
     # --- Reclassify "dose" → "stk" for syringe products -----------------
     adjust_doser = utleveringstype == veterinarian &
@@ -232,9 +232,9 @@ vetreg_4 <- vetreg_3 |>
       utleveringstype == veterinarian & is_match == 0 & fix_method == "multiply_by" ~ levert_mengde * fix_value,
       utleveringstype == veterinarian & is_match == 0 & fix_method == "divide_by"   ~ levert_mengde / fix_value,
       utleveringstype == veterinarian & is_match %in% c(1, 2)                       ~ levert_mengde,
-      utleveringstype == veterinarian & is_match == 3                                ~ levert_mengde * lmp_mengde,
-      utleveringstype == pharmacy                                                    ~ antall_pakninger * lmp_antall * lmp_mengde,
-      TRUE                                                                           ~ NA_real_
+      utleveringstype == veterinarian & is_match == 3                               ~ levert_mengde * lmp_mengde,
+      utleveringstype == pharmacy                                                   ~ antall_pakninger * lmp_antall * lmp_mengde,
+      TRUE                                                                          ~ NA_real_
     ),
     # --- Flag dose plausibility ------------------------------------------
     no_dose_info = if_else(
@@ -243,7 +243,6 @@ vetreg_4 <- vetreg_3 |>
       NA
     ),
     dose_flag = case_when(
-      !utleveringstype %in% c(veterinarian, pharmacy)           ~ "Not Applicable",
       no_dose_info == TRUE                                      ~ "No Dose Info",
       !is.na(calculated_dose) & calculated_dose < min_dose      ~ "Flagged - Low",
       !is.na(calculated_dose) & calculated_dose > (max_dose * antalldyr) ~ "Flagged - High",
