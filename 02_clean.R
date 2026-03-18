@@ -248,14 +248,18 @@ vetreg_4 <- vetreg_3 |>
       !is.na(calculated_dose) & calculated_dose > (max_dose * antalldyr) ~ "Flagged - High",
       is.na(calculated_dose)                                    ~ "Calculation Error",
       TRUE                                                      ~ "OK"
-    ),
+    )
+  )
+
+vetreg_5 <- vetreg_4 |>
+  mutate(
     # --- Overwrite amount & unit for corrected units in vet rows ------------------
     levert_mengde = if_else(
       utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
       calculated_dose, levert_mengde
     ),
     enhet_mengde = if_else(
-      utleveringstype == veterinarian & dose_flag == "OK" & is_match == 0,
+      dose_flag == "OK" & is_match == 0,
       lmp_enhet_pakning_v, enhet_mengde
     )
   )
