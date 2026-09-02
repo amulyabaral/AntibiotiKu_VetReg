@@ -1,0 +1,149 @@
+utleveringstype,varenavn,varenummer,legemiddelform_vi,lmp_enhet_pakning_v,enhet_mengde,lmp_antall,lmp_mengde,lmp_pakningsstr,atc_kode,styrke_nevner_v,styrke_nevner_u,no_obs,is_match,fix_method,fix_value,comment
+Utlevering til dyrehold fra apotek m.m.,Zeleris,485224,Injeksjon,ml,mlhgl,1,100,100,QJ01BA99,1,ml,6,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Zeleris,099684,Injeksjon,ml,mlhgl,1,50,50,QJ01BA99,1,ml,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Zactran,376742,Injeksjon,ml,mlhgl,1,50,50,QJ01FA95,1,ml,18,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Zactran,376742,Injeksjon,ml,,1,50,50,QJ01FA95,1,ml,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Zactran,159386,Injeksjon,ml,mlhgl,1,100,100,QJ01FA95,1,ml,15,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Zactran,159386,Injeksjon,ml,,1,100,100,QJ01FA95,1,ml,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Trymox vet,519445,Injeksjon,ml,mlhgl,1,100,100,QJ01CA04,1,ml,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Therios vet,598380,Tablett,stk,enpac,1,10,10,QJ01DB01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Therios vet,426070,Tablett,stk,enpac,1,30,30,QJ01DB01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Terramycin vet,531046,Injeksjon,ml,mlhgl,1,100,100,QJ01AA06,1,ml,111,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Terramycin vet,531046,Injeksjon,ml,,1,100,100,QJ01AA06,1,ml,5,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Terramycin vet,287359,Uteritorie,stk,,1,10,10,QG51AA01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox vet,088435,Tablett,stk,enpac,1,10,10,QJ01CR02,NA,NA,30,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox vet,088419,Tablett,stk,enpac,1,10,10,QJ01CR02,NA,NA,36,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox vet,088419,Tablett,stk,,1,10,10,QJ01CR02,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox vet,030981,Tablett,stk,enpac,1,10,10,QJ01CR02,NA,NA,16,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox vet,030981,Tablett,stk,,1,10,10,QJ01CR02,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox LC Plus vet,361411,Intramammarie,sprøyte,g spr,12,1,12 x 1,QJ51RV01,NA,NA,9,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox Comp vet,165035,Intramammarie,sprøyte,g,12,1,12 x 1,QJ51RV01,NA,NA,807,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Synulox Comp vet,165035,Intramammarie,sprøyte,g spr,12,1,12 x 1,QJ51RV01,NA,NA,165,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Streptocillin vet,522003,Intramammarie,g,g spr,40,8,40 x 8,QJ51RC23,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Streptocillin Forte vet,522011,Intramammarie,g,g spr,40,8,40 x 8,QJ51RC23,NA,NA,194,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Streptocillin Forte vet,522011,Intramammarie,g,,40,8,40 x 8,QJ51RC23,NA,NA,80,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Streptocillin Forte vet,011015,Intramammarie,g,g spr,160,8,160 x 8,QJ51RC23,NA,NA,84,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Streptocillin Forte vet,011015,Intramammarie,g,,160,8,160 x 8,QJ51RC23,NA,NA,8,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Siccalactin vet,298127,Intramammarie,sprøyte,g,4,1,4 x 1,QJ51RC24,8,g,"4,036",FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Siccalactin vet,264994,Intramammarie,sprøyte,g,4,1,6 x 4 x 1,QJ51RC24,8,g,952,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Ronaxan vet,479085,Tablett,stk,enpac,1,20,20,QJ01AA02,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Resflor vet,101096,Injeksjon,ml,mlhgl,1,100,100,QJ01BA99,1,ml,30,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Resflor vet,101096,Injeksjon,ml,,1,100,100,QJ01BA99,1,ml,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Penicillin Actavis,449819,Injeksjon_pulver,g,hgl,10,3,10 x 3,J01CE01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Penicillin Actavis,440693,Injeksjon_pulver,g,hgl,10,1.2,10 x 1.2,J01CE01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Orbenin vet,298153,Intramammarie,sprøyte,,24,1,24 x 1,QJ51CF02,1,sprøyte,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Orbenin extra vet,298132,Intramammarie,sprøyte,mlspr,60,1,60 x 1,QJ51CF02,1,sprøyte,5,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Norodine vet,408074,Oralpasta,g,g spr,5,52,5 x 52,QJ01EW10,1,g,114,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Norodine vet,408074,Oralpasta,g,,5,52,5 x 52,QJ01EW10,1,g,10,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Noroclav vet,134453,Tablett,stk,enpac,1,100,100,QJ01CR02,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Noroclav vet,134441,Tablett,stk,enpac,1,25,25,QJ01CR02,NA,NA,4,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Noroclav vet,020021,Tablett,stk,enpac,1,20,20,QJ01CR02,NA,NA,6,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Noroclav vet,020006,Tablett,stk,enpac,1,20,20,QJ01CR02,NA,NA,4,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Mastipen vet,076460,Intramammarie,sprøyte,g,5,1,5 x 1,QJ51CE09,1,sprøyte,500,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Mastipen vet,027442,Intramammarie,sprøyte,g,5,1,40 x 5 x 1,QJ51CE09,1,sprøyte,46,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Mastipen vet,027429,Intramammarie,sprøyte,g,5,1,20 x 5 x 1,QJ51CE09,1,sprøyte,57,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Keflex,500352,Tablett,stk,enpac,1,20,20,J01DB01,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Keflex,388035,Tablett,stk,enpac,1,40,40,J01DB01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Gensumycin,453130,Injeksjon,ml,mlhgl,5,2,5 x 2,J01GB03,1,ml,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Engemycin vet,334462,Injeksjon,ml,mlhgl,1,100,100,QJ01AA06,1,ml,7,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Dihydrostreptomycin vet,188292,Tablett,stk,enpac,1,20,20,QA07AA90,NA,NA,"1,025",FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Dihydrostreptomycin vet,188292,Tablett,stk,,1,20,20,QA07AA90,NA,NA,206,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Dihydrostreptomycin vet,188284,Tablett,stk,enpac,1,100,100,QA07AA90,NA,NA,535,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Dihydrostreptomycin vet,188284,Tablett,stk,,1,100,100,QA07AA90,NA,NA,207,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Dihydrostreptomycin agrovet vet,204824,Tablett,stk,enpac,1,100,100,QA07AA90,NA,NA,58,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Dalacin,151860,Tablett,stk,endos,100,1,100 x 1,J01FF01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Clindabactin,529986,Tablett,stk,enpac,1,10,10,QJ01FF01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Clamoxyl vet,120596,Tablett,stk,enpac,1,10,10,QJ01CA04,NA,NA,18,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Clamoxyl vet,120596,Tablett,stk,,1,10,10,QJ01CA04,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Clamoxyl vet,120105,Injeksjon,ml,mlhgl,6,100,6 x 100,QJ01CA04,1,ml,238,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Clamoxyl vet,120105,Injeksjon,ml,,6,100,6 x 100,QJ01CA04,1,ml,12,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Carepen vet,019403,Intramammarie,sprøyte,g,100,1,100 x 1,QJ51CE09,1,sprøyte,57,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Carepen vet,001994,Intramammarie,sprøyte,g,5,1,5 x 1,QJ51CE09,1,sprøyte,39,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Borgal vet,502070,Injeksjon,ml,mlhgl,5,100,5 x 100,QJ01EW13,1,ml,4,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Benzylpenicillin Panpharma,505495,Injeksjon_pulver,g,,10,3,10 x 3,J01CE01,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Benestermycin vet,279687,Intramammarie,sprøyte,ml,20,1,20 x 1,QJ51RC25,NA,NA,"3,207",FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Baytril vet,034041,Injeksjon,ml,mlhgl,1,50,50,QJ01MA90,1,ml,265,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Baytril vet,034041,Injeksjon,ml,,1,50,50,QJ01MA90,1,ml,12,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Baytril vet,027409,Tablett,stk,enpac,1,10,10,QJ01MA90,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Baytril,484788,Tablett,stk,enpac,1,10,10,QJ01MA90,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Bactrim,424466,Tablett,stk,enpac,1,20,20,J01EE01,NA,NA,562,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Bactrim,232325,Tablett,stk,enpac,1,20,20,J01EE01,NA,NA,16,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Bactrim,124453,Tablett,stk,enpac,1,20,20,J01EE01,NA,NA,248,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Bactrim,124453,Tablett,stk,,1,20,20,J01EE01,NA,NA,46,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Apocillin,589531,Tablett,stk,enpac,1,100,100,J01CE02,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Apocillin,589499,Tablett,stk,enpac,1,20,20,J01CE02,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Apocillin,589481,Tablett,stk,,1,30,30,J01CE02,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Apocillin,589465,Tablett,stk,enpac,1,30,30,J01CE02,NA,NA,2,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Apocillin,011818,Tablett,stk,enpac,1,40,40,J01CE02,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Antirobe vet,568517,Tablett,stk,enpac,1,16,16,QJ01FF01,NA,NA,1,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Antirobe vet,410658,Tablett,stk,enpac,1,16,16,QJ01FF01,NA,NA,6,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Antirobe vet,106471,Tablett,stk,enpac,1,16,16,QJ01FF01,NA,NA,6,FALSE,,,
+Utlevering til dyrehold fra apotek m.m.,Amoxicillin Mylan,019786,Tablett,stk,,1,20,20,J01CA04,NA,NA,1,FALSE,,,
+Melding om dyrehelsepersonells bruk av legemidler,Vetmast,195202,NA,S,stk,1,1,1,QJ01CE90,1,ml,20,FALSE,multiply_by,1,TRUE
+Melding om dyrehelsepersonells bruk av legemidler,Vetmast,195202,NA,S,ml,1,1,1,QJ01CE90,1,ml,2,FALSE,divide_by,18,18 ml of sterile suspension
+Melding om dyrehelsepersonells bruk av legemidler,Tribrissen vet,145318,Oralt pulver,kg,ml,1,1,1,QJ01EW10,1,kg,4,FALSE,divide_by,1000,meant another varenummer
+Melding om dyrehelsepersonells bruk av legemidler,Terramycin vet,157818,Uteritorie,stk,ml,10,1,10 x 1,QG51AA01,NA,NA,1,FALSE,multiply_by,1,error
+Melding om dyrehelsepersonells bruk av legemidler,Synulox LC Plus vet,361411,Intramammarie,sprøyte,g,12,1,12 x 1,QJ51RV01,NA,NA,180,FALSE,divide_by,3,200mg/50mg/10mg combination per 3g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Synulox Comp vet,165035,Intramammarie,sprøyte,g,12,1,12 x 1,QJ51RV01,NA,NA,"13,386",FALSE,divide_by,3,3g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Synulox Comp vet,165035,Intramammarie,sprøyte,ml,12,1,12 x 1,QJ51RV01,NA,NA,9,FALSE,divide_by,3,3g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Streptocillin vet,522003,Intramammarie,g,ml,40,8,40 x 8,QJ51RC23,NA,NA,2,FALSE,multiply_by,1,8g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Streptocillin Forte vet,522011,Intramammarie,g,ml,40,8,40 x 8,QJ51RC23,NA,NA,68,FALSE,multiply_by,1,no info;1g = 1ml 
+Melding om dyrehelsepersonells bruk av legemidler,Streptocillin Forte vet,444992,Intramammarie,g,ml,4,8,4 x 8,QJ51RC23,NA,NA,4,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Streptocillin Forte vet,011015,Intramammarie,g,ml,160,8,160 x 8,QJ51RC23,NA,NA,28,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Siccalactin vet,298127,Intramammarie,sprøyte,g,4,1,4 x 1,QJ51RC24,8,g,830,FALSE,divide_by,8,170mg and 400mg per 8g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Siccalactin vet,298127,Intramammarie,sprøyte,dose,4,1,4 x 1,QJ51RC24,8,g,8,FALSE,multiply_by,1,170mg and 400mg per 8g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Siccalactin vet,298127,Intramammarie,sprøyte,ml,4,1,4 x 1,QJ51RC24,8,g,8,FALSE,multiply_by,1,170mg and 400mg per 8g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Siccalactin vet,264994,Intramammarie,sprøyte,g,4,1,6 x 4 x 1,QJ51RC24,8,g,"11,024",FALSE,divide_by,8,170mg and 400mg per 8g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Siccalactin vet,264994,Intramammarie,sprøyte,ml,4,1,6 x 4 x 1,QJ51RC24,8,g,64,FALSE,divide_by ,4,"170mg and 400mg per 8g syringe and all records only say 20ml, suspect that they are saying one is 5ml"
+Melding om dyrehelsepersonells bruk av legemidler,Siccalactin vet,264994,Intramammarie,sprøyte,dose,4,1,6 x 4 x 1,QJ51RC24,8,g,4,FALSE,multiply_by,1,170mg and 400mg per 8g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Resflor vet,101096,Injeksjon,ml,g,1,100,100,QJ01BA99,1,ml,6,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Penovet vet,511675,Injeksjon,ml,kg,5,100,5 x 100,QJ01CE09,1,ml,2,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Penovet vet,144907,Injeksjon,ml,kg,25,100,25 x 100,QJ01CE09,1,ml,2,FALSE,multiply_by,1,error 
+Melding om dyrehelsepersonells bruk av legemidler,Penicillin Actavis,449819,Injeksjon_pulver,g,ml,10,3,10 x 3,J01CE01,NA,NA,3,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Penicillin Actavis,440677,Injeksjon_pulver,mg,stk,10,600,10 x 600,J01CE01,NA,NA,3,FALSE,multiply_by,10,
+Melding om dyrehelsepersonells bruk av legemidler,Orbenin vet,298153,Intramammarie,sprøyte,g,24,1,24 x 1,QJ51CF02,1,sprøyte,543,FALSE,divide_by,4,4g spr
+Melding om dyrehelsepersonells bruk av legemidler,Orbenin extra vet,298132,Intramammarie,sprøyte,ml,60,1,60 x 1,QJ51CF02,1,sprøyte,1,FALSE,divide_by,1.6,
+Melding om dyrehelsepersonells bruk av legemidler,Norodine vet,408074,Oralpasta,g,doser,5,52,5 x 52,QJ01EW10,1,g,40,FALSE,multiply_by,52,
+Melding om dyrehelsepersonells bruk av legemidler,Norodine vet,408074,Oralpasta,g,kg,5,52,5 x 52,QJ01EW10,1,g,12,FALSE,multiply_by,1, meant g - verified with manual checking
+Melding om dyrehelsepersonells bruk av legemidler,Norodine vet,408074,Oralpasta,g,dose,5,52,5 x 52,QJ01EW10,1,g,2,FALSE,multiply_by,52,
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,076460,Intramammarie,sprøyte,g,5,1,5 x 1,QJ51CE09,1,sprøyte,"4,595",FALSE,divide_by,10,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,076460,Intramammarie,sprøyte,doser,5,1,5 x 1,QJ51CE09,1,sprøyte,72,FALSE,multiply_by,1,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,076460,Intramammarie,sprøyte,ml,5,1,5 x 1,QJ51CE09,1,sprøyte,53,FALSE,divide_by ,10,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,076460,Intramammarie,sprøyte,dose,5,1,5 x 1,QJ51CE09,1,sprøyte,2,FALSE,multiply_by,1,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027442,Intramammarie,sprøyte,g,5,1,40 x 5 x 1,QJ51CE09,1,sprøyte,"16,918",FALSE,divide_by,10,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027442,Intramammarie,sprøyte,doser,5,1,40 x 5 x 1,QJ51CE09,1,sprøyte,33,FALSE,multiply_by,1,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027442,Intramammarie,sprøyte,ml,5,1,40 x 5 x 1,QJ51CE09,1,sprøyte,19,FALSE,divide_by,10,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027442,Intramammarie,sprøyte,dose,5,1,40 x 5 x 1,QJ51CE09,1,sprøyte,1,FALSE,multiply_by,1,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027429,Intramammarie,sprøyte,g,5,1,20 x 5 x 1,QJ51CE09,1,sprøyte,"31,368",FALSE,divide_by,10,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027429,Intramammarie,sprøyte,doser,5,1,20 x 5 x 1,QJ51CE09,1,sprøyte,50,FALSE,multiply_by,1,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027429,Intramammarie,sprøyte,ml,5,1,20 x 5 x 1,QJ51CE09,1,sprøyte,11,FALSE,divide_by,10,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Mastipen vet,027429,Intramammarie,sprøyte,dose,5,1,20 x 5 x 1,QJ51CE09,1,sprøyte,4,FALSE,multiply_by,1,10g spr 300mg active
+Melding om dyrehelsepersonells bruk av legemidler,Dihydrostreptomycin vet,188292,Tablett,stk,g,1,20,20,QA07AA90,NA,NA,1,FALSE,multiply_by,1,"500 mg, 20 tabletter"
+Melding om dyrehelsepersonells bruk av legemidler,Convenia,459447,Injeksjon_pulver,S,stk,1,1,1,QJ01DD91,1,ml,1,FALSE,multiply_by,1,"1 sett (pulver og 10 ml oppløsningsvæske) (hettegl.), dog medication"
+Melding om dyrehelsepersonells bruk av legemidler,Convenia,046077,Injeksjon_pulver,S,ml,1,1,1,QJ01DD91,1,ml,1,FALSE,divide_by,10,"1 sett (pulver og 10 ml oppløsningsvæske) (hettegl.), dog medication"
+Melding om dyrehelsepersonells bruk av legemidler,Clamoxyl vet,076083,Tablett,stk,ml,1,10,10,QJ01CA04,NA,NA,1,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Clamoxyl vet,044046,Tablett,stk,ml,1,10,10,QJ01CA04,NA,NA,2,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Clamoxyl vet,040620,Tablett,stk,ml,1,100,100,QJ01CA04,NA,NA,1,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Carepen vet,019403,Intramammarie,sprøyte,g,100,1,100 x 1,QJ51CE09,1,sprøyte,"3,960",FALSE,divide_by,10,600mg per 10ml or 10g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Carepen vet,001994,Intramammarie,sprøyte,g,5,1,5 x 1,QJ51CE09,1,sprøyte,"3,992",FALSE,divide_by,10,600mg per 10ml or 10g syringe
+Melding om dyrehelsepersonells bruk av legemidler,Carepen vet,001994,Intramammarie,sprøyte,ml,5,1,5 x 1,QJ51CE09,1,sprøyte,2,FALSE,divide_by,10,
+Melding om dyrehelsepersonells bruk av legemidler,Borgal vet,502070,Injeksjon,ml,kg,5,100,5 x 100,QJ01EW13,1,ml,2,FALSE,multiply_by,1,prob meant ml too
+Melding om dyrehelsepersonells bruk av legemidler,BENZYLPENICILLIN PANPHARMA,546846,Injeksjon_pulver,mill IE,g,10,10,NA,J01CE01,NA,NA,1,FALSE,multiply_by,1,
+Melding om dyrehelsepersonells bruk av legemidler,Benestermycin vet,279687,Intramammarie,sprøyte,ml,20,1,20 x 1,QJ51RC25,NA,NA,"12,174",FALSE,divide_by,5,280mg and 100mg per 5ml syringe
+Melding om dyrehelsepersonells bruk av legemidler,Benestermycin vet,279687,Intramammarie,sprøyte,g,20,1,20 x 1,QJ51RC25,NA,NA,42,FALSE,divide_by,5,280mg and 100mg per 5ml syringe
+Melding om dyrehelsepersonells bruk av legemidler,Benestermycin vet,279687,Intramammarie,sprøyte,doser,20,1,20 x 1,QJ51RC25,NA,NA,6,FALSE,multiply_by,1,280mg and 100mg per 5ml syringe
+Melding om dyrehelsepersonells bruk av legemidler,Baytril vet,496174,Tablett,stk,ml,1,10,10,QJ01MA90,NA,NA,3,FALSE,multiply_by,1,"false, prob meant other varenummmer"
+Melding om dyrehelsepersonells bruk av legemidler,Baytril vet,034033,Tablett,stk,ml,1,10,10,QJ01MA90,NA,NA,1,FALSE,multiply_by,1,"false, prob meant other varenummmer"
+Melding om dyrehelsepersonells bruk av legemidler,Baytril vet,019775,Tablett,stk,ml,1,20,20,QJ01MA90,NA,NA,11,FALSE,multiply_by,1,"false, prob meant other varenummer"
+Melding om dyrehelsepersonells bruk av legemidler,Adjusol TMP Sulfa vet,326509,Oral oppløsning,L,ml,1,2,2,QJ01EW10,1,L,18,FALSE,divide_by,1000,meant ml
+Melding om dyrehelsepersonells bruk av legemidler,Adjusol TMP Sulfa vet,326509,Oral oppløsning,L,l,1,2,2,QJ01EW10,1,L,4,FALSE,divide_by,1000,meant ml
+Melding om dyrehelsepersonells bruk av legemidler,,128131,,,,enpac,,,,,,,,multiply_by,1,meant stk
+Melding om dyrehelsepersonells bruk av legemidler,,128131,,,,ml,,,,,,,,multiply_by,1,meant stk
+Melding om dyrehelsepersonells bruk av legemidler,,128131,,,,,,,,,,,,multiply_by,1,meant stk
+Utlevering til dyrehold fra apotek m.m.,,128131,,,,enpac,,,,,,,,multiply_by,1,meant stk
+Utlevering til dyrehold fra apotek m.m.,,128131,,,,ml,,,,,,,,multiply_by,1,meant stk
+Utlevering til dyrehold fra apotek m.m.,,128131,,,,,,,,,,,,multiply_by,1,meant stk
+Melding om dyrehelsepersonells bruk av legemidler,Prokainpenicillin/dihydrostreptomycin,000002,,l,ml,1,,,,,,,,divide_by,1000,litre to ml conversion
+Melding om dyrehelsepersonells bruk av legemidler,Prokainpenicillin/dihydrostreptomycin,000002,,l,stk,1,,,,,,,,divide_by,1000,probably meant another varenummer
+Melding om dyrehelsepersonells bruk av legemidler,Doxylin,002971,,stk,ml,,,,,,,,,multiply_by,1,"probably meant another varenummer"
+Melding om dyrehelsepersonells bruk av legemidler,Bactrim,364639,,ml,ml,,,,,,,,,multiply_by,10,"probably meant 10, manual checking"
