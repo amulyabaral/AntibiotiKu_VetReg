@@ -69,15 +69,15 @@ atc_prefixes <- c(
   "QG01AE", "G01AE",     # Gynecological sulfonamides (e.g. sulfatolamide)
   "QG01BA", "G01BA",     # Gynecological antibiotics + corticosteroids
   "QG01BE", "G01BE",     # Gynecological sulfonamides + corticosteroids
-  "QG51AA",              # Intrauterine antibiotics
-  "QG51AG",              # Intrauterine antiinfective/antiseptic combos
+  "QG51AA",           # Intrauterine antibiotics
+  "QG51AG", "QG51AG",             # Intrauterine antiinfective/antiseptic combos
   
   # --- J: Systemic antiinfectives — antibacterials --------------------------
   "QJ01", "J01",         # Antibacterials for systemic use
-  "QJ51",                # Antibacterials for intramammary use
+  "QJ51",               # Antibacterials for intramammary use
   
   # --- P: Antiparasitic — antiprotozoals with AB activity -------------------
-  "QP51AG"               # Sulfonamides used as antiprotozoals (e.g. sulfadimidine)
+  "QP51AG" # Sulfonamides used as antiprotozoals (e.g. sulfadimidine)
 )
 
 # ============================================================================
@@ -87,24 +87,20 @@ atc_prefixes <- c(
 
 atc_ignored <- c(
   # --- D: Dermatologicals ---------------------------------------------------
-  "D06AA",               # Antibiotics for dermatological use (e.g. tetracyclines)
-  "D06AX",               # Other antibiotics for topical/dermatological use
-  "D06BA",               # Sulfonamides for dermatological use
-  "QD06AA",              # Vet: dermatological antibiotics
-  "QD06BA",              # Vet: dermatological sulfonamides
-  
+  "D06AA", "QD06AA",     # Antibiotics for dermatological use (e.g. tetracyclines)
+  "D06AX", "QD06AX",     # Other antibiotics for topical/dermatological use
+  "D06BA", "QD06BA",     # Sulfonamides for dermatological use
   # --- J: Antimycobacterials ------------------------------------------------
-  "J04AB",               # Antibiotics for mycobacterial infections (e.g. rifampicin)
-  "QJ02AA",              # Vet: systemic antimycotics (amphotericin B)
+  "J04AB", "QJ04AB",               # Antibiotics for mycobacterial infections (e.g. rifampicin)
+  "QJ02AA", "J02AA",              # Vet: systemic antimycotics (amphotericin B)
   
   # --- S: Sensory organs (eye & ear) ----------------------------------------
-  "QS01AA",              # Vet: ophthalmic antibiotics
-  "QS02CA",              # Vet: otic corticosteroid + antiinfective combos
-  "S01AA",               # Ophthalmic antibiotics
-  "S01AX",               # Other ophthalmic antiinfectives
-  "S01CA",               # Ophthalmic corticosteroid + antiinfective combos
-  "S02AA",               # Otic antiinfectives
-  "S03CA"                # Ophthalmological/otological corticosteroid + antiinfective combos
+  "S01AA", "QS01AA",     # Ophthalmic antibiotics
+  "S01AX", "QS01AX",     # Other ophthalmic antiinfectives
+  "S01CA", "QS01CA",     # Ophthalmic corticosteroid + antiinfective combos
+  "S02AA", "QS02AA",     # Otic antiinfectives
+  "S02CA", "QS02CA",     # Otic corticosteroid + antiinfective combos
+  "S03CA", "QS03CA"      # Ophthalmological/otological corticosteroid + antiinfective combos
 )
 
 atc_pattern     <- paste0("^(", paste(atc_prefixes, collapse = "|"), ")")
@@ -162,14 +158,16 @@ dbDisconnect(con)
 # ============================================================================
 
 # -- SPC product info (from Digivet) ----------------------------------------
-load(file.path(project_root, "data", "Varenr_Virkestoff_unique.rds"))
+load(file.path(project_root, "digivet_data", "Varenr_Virkestoff_unique.rds"))
+load(file.path(project_root, "digivet_data", "antall_Varenr_Virkestoff.rds"))
+
 
 spc_base <- Varenr_Virkestoff_unique |>
   mutate(varenummer = str_pad(varenummer, width = 6, side = "left", pad = "0"),
          lmp_antall = as.numeric(lmp_antall),
-         lmp_antall = if_else(is.na(lmp_antall) | lmp_antall == 0, 1, lmp_antall)
+         lmp_antall = if_else(is.na(lmp_antall) | lmp_antall == 0, 1, lmp_antall),
+         across(where(is.character), \(x) str_replace_all(x, "sprÃ¸yte", "sprøyte"))
   )
-
 spc_info <- spc_base |>
   bind_rows(
     spc_base |> filter(varenavn == "Doxylin") |> slice(1) |>
@@ -179,7 +177,7 @@ spc_info <- spc_base |>
       mutate(varenummer = "482630"),
     spc_base |> filter(varenavn == "Carepen vet", varenummer == "019403") |> slice(1) |>
       mutate(varenummer = "486198")
-  )
+  ) 
 
 # Subset used for joins later
 ref_all <- spc_info |>
