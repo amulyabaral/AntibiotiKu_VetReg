@@ -647,14 +647,15 @@ p1_fixed <- p1 + common_theme
 p2_fixed <- p2 + common_theme
 
 # free() releases the top plot from panel-width alignment with the bottom row
-combined_plot_fig_5 <- (free(p_fixed) / (p1_fixed | p2_fixed)) +
+combined_plot_fig_3 <- (free(p_fixed) / (p1_fixed | p2_fixed)) +
   plot_layout(heights = c(3, 1)) +
   plot_annotation(
     tag_levels = list(c("A", "B", "C"))
     )
 
-combined_plot_fig_5
-ggsave("Figure_5_combined.png", combined_plot_fig_5, width = 16, height = 12, dpi = 300)
+combined_plot_fig_3
+ggsave("Figure_3_combined.png", combined_plot_fig_3, width = 16, height = 12, dpi = 300)
+ggsave("Figure_3.tiff", combined_plot_fig_5, width = 16, height = 12, dpi = 300)
 
 
 mg_per_kg_biomass <- antibiotics_pop %>%
