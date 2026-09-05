@@ -1,0 +1,18 @@
+dyrekategori;AnimalType;ProductionType
+Hest;Horses;Mixed purposes
+Svin;Undefined pigs;
+Storfe;Undefined cattle;
+Sau;Sheep;Mixed purposes
+Geit;Goats;Mixed purposes
+Reinsdyr;;Meat/Fattening
+Lama, alpakka, m.m.;;Mixed purposes
+Svin - UTGÅTT KODE;Undefined pigs;
+Storfe - UTGÅTT KODE;Undefined cattle;
+Andre matproduserende dyr - UTGÅTT KODE;Other food-producing animals;
+Svin, kjøttproduksjon;Fattening pigs;Meat/Fattening
+And;Other poultry;
+Gås;Other poultry;
+Storfe, kjøttproduksjon;Beef cattle;Meat/Fattening
+Svin, andre;Other pigs;
+Storfe, melkeproduksjon - UTGÅTT KODE;Dairy cattle;Milk
+Storfe, melkeproduksjon;Dairy cattle;Milk

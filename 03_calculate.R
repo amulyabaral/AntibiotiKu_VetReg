@@ -370,9 +370,6 @@ antibiotics_report_8 <- antibiotics_report_7 %>%
     )
   )
 
-#Phenoxymethylpenicillin oral tablets/powder (Apocillin) — no oral DDDvet exists
-# so we are omitting it, it has been mentioned on 
-#dddvet <- read_csv("C:\\Users\\amulyab\\OneDrive - Norwegian University of Life Sciences\\Moove Project\\DDDvet EMA - Sheet1.csv")
 
 antibiotics_imputed_ddd <- antibiotics_report_8 %>%
   left_join(dddvet, by = c("Route", "ActiveIngredient" = "Substance"))
